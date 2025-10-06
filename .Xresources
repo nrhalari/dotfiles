@@ -1,0 +1,60 @@
+! https://github.com/nrhalari/dotfiles
+! ~/.Xresources
+! applicable for urxvt, xterm and uxterm
+
+! XTerm -------
+! reverses foreground and background colour
+XTerm.vt100.reverseVideo: true
+
+! utf-8 encoding
+XTerm.vt100.locale: true
+! XTerm.vt100.utf8: true
+
+! font settings
+XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false
+XTerm.vt100.font: 7x13
+
+XTerm.vt100.faceName: DejaVu Sans Mono:style=Book:antialias=false
+XTerm.vt100.faceNameDoublesize: WenQuanYi WenQuanYi Bitmap Song
+XTerm.vt100.faceSize: 8
+
+! geometry
+XTerm.vt100.geometry: 80x32
+
+! scrolling (default is 1024)
+XTerm.vt100.saveLines: 4096
+
+! scrollbar
+XTerm.vt100.scrollBar: true
+XTerm.vt100.scrollbar.width: 8
+
+! 
+XTerm.termName: xterm-256color
+
+! colors (*foreground/*background is applicable to all x apps like xterm, xclock, xfontsel etc)
+! *foreground: rgb:b2/b2/b2
+! *background: rgb:08/08/08
+XTerm.vt100.foreground: white
+XTerm.vt100.background: black
+XTerm.vt100.color0: rgb:28/28/28
+! ...
+XTerm.vt100.color15: rgb:e4/e4/e4
+
+! key binding
+XTerm.vt100.translations: #override \n\
+    Ctrl <Key>M: maximize() \n\
+    Ctrl <Key>R: restore()
+<Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! make alt key behave as on other terminals
+XTerm.vt100.metaSendsEscape: true
+
+! fix the backspace key
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+
+! add below line in ~/.bashrc (without first exclamation) for automatic transparency
+! dependencies : transset and composite manager (like picom/xcompmngr)
+! [ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
